@@ -27,7 +27,7 @@ for row_idx, row in enumerate(grid):
                 visible += 1
 
             # Part 2
-            left_count = 0; right_count = 0; top_count = 0; bottom_count = 0
+            left_count, right_count, top_count, bottom_count = 0, 0, 0, 0
             for i in left:
                 if tree > i:
                     left_count += 1
