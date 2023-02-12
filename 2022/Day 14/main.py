@@ -44,13 +44,10 @@ def main(part):
     global max_depth
     set_up()
     bp, max_depth = [(1, max_depth), (0, max_depth + 2)][part - 1]
-    stop = False
-    while not stop:
+    while True:
         bead = (500, 0)
         while bead not in occupied_coordinates:
             bead = (bead[0], bead[1] + 1)
-            if bead[1] > max_depth:
-                stop = True
         bead = (bead[0], bead[1] - 1)
         if bead[1] < bp or not det_placer(bead):
             break
