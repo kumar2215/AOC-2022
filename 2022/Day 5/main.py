@@ -1,7 +1,7 @@
 from copy import deepcopy
 
-f = open('input.txt')
-lst = f.read().split('\n')
+with open('input.txt', 'r') as f:
+    lst = f.read().split('\n')
 
 Break = lst.index('')
 stacks = {int(i): [] for i in lst[Break - 1] if i.isnumeric()}
@@ -41,4 +41,5 @@ msg2 = ''
 for stack in stacks2:
     msg2 += stacks2[stack][0]
 
-print(msg1, msg2)
+print(f'Part 1: {msg1}')
+print(f'Part 1: {msg2}')
