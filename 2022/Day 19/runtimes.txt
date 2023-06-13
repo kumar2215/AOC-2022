@@ -1,0 +1,23 @@
+t = 24, 30 blueprints
+Python3.9 without multiprocessing time: 84.66s, 99% cpu
+Python3.9 with multiprocessing time: 27.32s, 593% cpu
+Python3.11 without multiprocessing time: 35.38s, 98% cpu
+Python3.11 with multiprocessing time: 10.85s, 573%  cpu
+C++ g++ std=c++14 -O3 time: 40.02s, 98% cpu
+
+Python 3.11 is faster than C++ here
+
+t = 27, 3 blueprints
+Python3.9 without multiprocessing time: 80.06 s, 99 % cpu
+Python3.9 with multiprocessing time: 54.09 s, 151 % cpu
+Python3.11 without multiprocessing time: 43.23 s, 97 % cpu
+Python3.11 with multiprocessing time: 25.83 s, 146 %  cpu
+C++ g++ std=c++14 -O3 time: 43.20 s, 98 % cpu
+
+Python 3.11 and C++ have about the same speed here
+
+t = 32, 3 blueprints
+Python3.11 with multiprocessing time: 6h 11min 15.78s, 37% cpu
+C++ g++ std=c++14 -O3 time: 1h 18min 44.75s
+
+C++ is much faster than Python 3.11 here
