@@ -16,8 +16,8 @@ C++ g++ std=c++14 -O3 time: 43.20 s, 98 % cpu
 
 Python 3.11 and C++ have about the same speed here
 
-t = 32, 3 blueprints
-Python3.11 with multiprocessing time: 6h 11min 15.78s, 37% cpu
-C++ g++ std=c++14 -O3 time: 1h 18min 44.75s
+overall Parts 1 and 2
+Python3.11 without multiprocessing time: 46 min, 86% cpu
+C++ g++ std=c++14 -O3 time: 35min 18s, ? cpu
 
-C++ is much faster than Python 3.11 here
+C++ is faster than Python 3.11 here
