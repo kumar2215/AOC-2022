@@ -64,7 +64,7 @@ public:
 
     Blueprint(int lim, int id, int ore, int clay, vector<int> obsidian, vector<int> geode)
             : limit(lim), ID(id), ore_robot_cost(ore), clay_robot_cost(clay), obsidian_robot_cost(obsidian), geode_robot_cost(geode) {
-        for (int t = 1; t <= limit; t++) {
+        for (int t = 1; t <= 32; t++) {
             this->collection[t] = map<vector<int>, set<vector<int> > >();
         }
     }
