@@ -18,6 +18,6 @@ Python 3.11 and C++ have about the same speed here
 
 overall Parts 1 and 2
 Python3.11 without multiprocessing time: 46 min, 86% cpu
-C++ g++ std=c++14 -O3 time: 35min 18s, ? cpu
+C++ g++ std=c++14 -O3 time: 35min 16s, 91% cpu
 
 C++ is faster than Python 3.11 here
