@@ -51,7 +51,7 @@ for i in range(20):
     perform_round(monkeys1)
 monkey_inspection_count_1 = sorted([monkey.inspection_count for monkey in monkeys1], reverse=True)
 
-for i in range(1, 10001):
+for i in range(10000):
     perform_round(monkeys2)
 monkey_inspection_count_2 = sorted([monkey.inspection_count for monkey in monkeys2], reverse=True)
 
