@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-with open('input2.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     monkeys = [monkey.split(': ') for monkey in f.read().split('\n')]
     equations = [' = '.join(monkey) for monkey in monkeys if not monkey[1].isnumeric()]
     monkeys = {monkey[0]: monkey[1] for monkey in monkeys}
