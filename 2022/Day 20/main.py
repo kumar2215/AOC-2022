@@ -4,7 +4,7 @@ class Int:
     def __init__(self, value: str, part=1):
         self.value = [int(value), int(value) * self.decryption_key][part - 1]
 
-with open('input2.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     contents = f.read()
     lst = [Int(x, part=1) for x in contents.split('\n')]
     lst2 = [Int(x, part=2) for x in contents.split('\n')]
