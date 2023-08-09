@@ -1,16 +1,10 @@
-f = open('input.txt')
-lst = [i for i in f.read() if i.isalpha()]
+with open('input.txt', 'r') as f:
+    lst = [i for i in f.read()]
 
-#Part 1
-for i in range(len(lst)):
-    if len(set(lst[i: 4])) == 4:
-        num = i + 4
-        print(num)
-        break
-        
-# Part 2        
-for i in range(len(lst)):
-    if len(set(lst[i: 14])) == 14:
-        num = i + 14
-        print(num)
-        break
+def find_marker(length):
+    for i in range(len(lst)):
+        if len(set(lst[i: i + length])) == length:
+            return i + length
+
+print(f"Part 1: {find_marker(4)}")
+print(f"Part 2: {find_marker(14)}")
