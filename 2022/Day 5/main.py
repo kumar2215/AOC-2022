@@ -42,4 +42,4 @@ for stack in stacks2:
     msg2 += stacks2[stack][0]
 
 print(f'Part 1: {msg1}')
-print(f'Part 1: {msg2}')
+print(f'Part 2: {msg2}')
