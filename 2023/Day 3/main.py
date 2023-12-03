@@ -1,10 +1,6 @@
 
 with open('input.txt') as f:
-    content = f.read().split('\n')
-    grid = {}
-    for j, line in enumerate(content, start=1):
-        for i, char in enumerate(line, start=1):
-            grid[(i, j)] = char
+    grid = {(i, j): char for j, line in enumerate(f.read().split('\n')) for i, char in enumerate(line)}
 
 nums = {}
 visited = []
@@ -41,7 +37,7 @@ for points in nums:
     if any(grid[pt] != '.' for pt in surrounding):
         part_numbers.append(num)
     for pt in surrounding:
-        if pt in grid and grid[pt] == '*':
+        if grid[pt] == '*':
             if pt in gears:
                 gears[pt].append(num)
             else:
