@@ -8,9 +8,9 @@ with open('input.txt') as f:
         springs.append((spring, tuple(int(x) for x in perm.split(','))))
 
 def solve(s: str, perm: tuple):
-    curr = tuple(0 for _ in perm)
+    pointers = tuple(0 for _ in perm)
     poss = {n: [] for n in range(len(perm))}
-    for i, pointer in enumerate(curr):
+    for i, pointer in enumerate(pointers):
         last = len(s) - (sum(perm[i:]) + len(perm[i+1:])) if i < len(perm) - 1 else len(s) - perm[i]
         while pointer <= last:
             if set(s[pointer:pointer+perm[i]]).issubset({'?', '#'}):
