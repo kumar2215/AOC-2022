@@ -1,0 +1,9 @@
+Using CPU:
+Part 1: 56678
+Part 2: 79088855654037
+Time elapsed: 177.29339989996515
+
+Using GPU:
+Part 1: 56678
+Part 2: 79088855654037
+Time elapsed: 10.384679700015113
