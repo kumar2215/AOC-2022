@@ -69,7 +69,6 @@ public class Main {
                 LB = m + 1;
             }
         }
-        m--;
         System.out.println("Part 2: " + m);
     }
     public static void initialisation() {
