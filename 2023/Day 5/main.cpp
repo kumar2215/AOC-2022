@@ -165,8 +165,7 @@ int main() {
     initialisation();
     printf("Part 1: %llu\n", get_min_location());
     int64_t m = 0;
-    int64_t LB = 0;
-    int64_t UB = 1;
+    int64_t LB = 0, UB = 1;
     while (!inside_seeds2(inv(UB))) {
         UB *= 2;
     }
