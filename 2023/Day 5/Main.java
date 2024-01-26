@@ -13,7 +13,6 @@ class Range {
     boolean contains(long x) {
         return x >= this.lower && x <= this.upper;
     }
-
 }
 
 class Function {
@@ -21,11 +20,9 @@ class Function {
     HashMap<Range, Long> ranges = new HashMap<Range, Long>();
 
     Function() {}
-
     Function(HashMap<Range, Long> ranges) {
         this.ranges = ranges;
     }
-
     Function(Function f) {
         this.ranges = f.ranges;
     }
@@ -37,7 +34,6 @@ class Function {
         }
         return x;
     }
-
     long inv(long y) {
         for (Range R: this.ranges.keySet()) {
             long c = ranges.get(R);
@@ -47,7 +43,6 @@ class Function {
         }
         return y;
     }
-
 }
 
 public class Main {
@@ -60,8 +55,19 @@ public class Main {
         initialisation();
         System.out.println("Part 1: " + get_min_location());
         long m = 0;
-        while (!inside_seeds2(inv(m))) {
-            m++;
+        long LB = 0;
+        long UB = 1;
+        while (!inside_seeds2(inv(UB))) {
+            UB *= 2;
+        }
+        while (LB != UB) {
+            m = LB + (UB - LB) / 2;
+            if (inside_seeds2(inv(m))) {
+                UB = m;
+            }
+            else {
+                LB = m + 1;
+            }
         }
         m--;
         System.out.println("Part 2: " + m);
@@ -128,18 +134,14 @@ public class Main {
 
     public static long inv(long x) {
         String curr = "location";
-        ArrayList<String> cat = new ArrayList<String>();
-        Function f = new Function();
         while (!curr.equals("seed")) {
             for (ArrayList<String> S : mappings2.keySet()) {
                 if (S.get(0).equals(curr)) {
-                    cat = S;
-                    f = mappings2.get(S);
+                    x = mappings2.get(S).inv(x);
+                    curr = S.get(1);
                     break;
                 }
             }
-            x = f.inv(x);
-            curr = cat.get(1);
         }
         return x;
     }
