@@ -14,8 +14,8 @@ def is_in_grid(pt):
     x, y = pt
     return 0 <= x < COLS and 0 <= y < ROWS
         
-ANTINODES = defaultdict(list)
-ANTINODES2 = defaultdict(list)
+ANTINODES = {}
+ANTINODES2 = {}
 for type, antennas in ANTENNAS.items():
     antinodes = set()
     antinodes2 = set()
