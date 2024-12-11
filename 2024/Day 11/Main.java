@@ -4,10 +4,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class Main {
 
-    private static final int PART1 = 24;
-    private static final int BLINKS = 75;
-    private static final AtomicLong total = new AtomicLong(0);
-    private static final AtomicLong total2 = new AtomicLong(0);
+    private static final int PART1 = 24, BLINKS = 75;
+    private static final AtomicLong total = new AtomicLong(0), total2 = new AtomicLong(0);
 
     public static void handleStone(long num, int blinks) {
         Map<Long, Long> stones = new HashMap<>();
