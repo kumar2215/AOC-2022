@@ -1,47 +1,32 @@
-
 with open("input.txt") as f:
-    data = [[int(x) for x in list(line)] for line in f.read().split("\n")]
-    
-grid = {}
-ROWS, COLS = len(data), len(data[0])
-trail_heads = set()
-for y, row in enumerate(data):
-    for x, cell in enumerate(row):
-        grid[(x, y)] = cell
-        if cell == 0: 
-            trail_heads.add((x, y))
-        
-def can_be_next(org_pt):
-    X, Y = org_pt
+    grid = [[int(x) for x in list(line)] for line in f.read().split("\n")]
+
+ROWS, COLS = len(grid), len(grid[0])
+trail_heads = {(x, y) for y, row in enumerate(grid) for x, cell in enumerate(row) if cell == 0}
+
+def can_be_next(X, Y):
     def can(next_pt):
         x, y = next_pt
-        return 0 <= x < COLS and 0 <= y < ROWS and grid[(x, y)] - grid[(X, Y)] == 1
+        return 0 <= x < COLS and 0 <= y < ROWS and grid[y][x] - grid[Y][X] == 1
     return can
 
-def get_next_possible_pos(pt):
-    x, y = pt
-    return filter(can_be_next(pt), [
-        (x, y - 1),
-        (x, y + 1),
-        (x - 1, y),
-        (x + 1, y)
-    ])
+def get_next_possible_pos(x, y):
+    return filter(can_be_next(x, y), [(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)])
     
 def get_trailhead_score(pt):
-    x, y = pt
-    seen, frontier = set(), [(x, y)]
-    score, paths = 0, {((x, y),)}
+    frontier, seen= [pt], set()
+    score, paths = 0, {(pt,)}
     while frontier:
         new_frontier = []
         for point in frontier:
             if point in seen: continue
             seen.add(point)
             x, y = point
-            if grid[point] == 9: 
+            if grid[y][x] == 9: 
                 score += 1
                 continue
             else:
-                next_poss = list(get_next_possible_pos(point))
+                next_poss = list(get_next_possible_pos(x, y))
                 new_frontier.extend(next_poss)
                 for path in filter(lambda p: p[-1] == point, paths.copy()):
                     paths.remove(path)
