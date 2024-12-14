@@ -2,7 +2,7 @@ from scanf import scanf
 from sympy.matrices import Matrix
 
 with open("input.txt") as f:
-    claw_machines = [macjine.split("\n") for macjine in f.read().split("\n\n")]
+    claw_machines = [machine.split("\n") for machine in f.read().split("\n\n")]
     
 class ClawMachine:
     
