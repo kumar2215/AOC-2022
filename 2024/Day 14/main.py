@@ -15,17 +15,9 @@ class Robot:
         self.px = (self.px + self.vx) % COLS
         self.py = (self.py + self.vy) % ROWS
         
-        
 robots = [Robot(*robot) for robot in robots]
 ROWS = max(robot.py for robot in robots) + 1
 COLS = max(robot.px for robot in robots) + 1
-
-def print_grid():
-    for y in range(ROWS):
-        for x in range(COLS):
-            v = sum(robot.py == y and robot.px == x for robot in robots)
-            print(v if v > 0 else ".", end="")
-        print()
 
 def simulate(n):
     for _ in range(n):
@@ -48,8 +40,6 @@ def get_safety_factor():
     return dct[1] * dct[2] * dct[3] * dct[4]
 
 def is_chrismas_tree():
-    grid = [["." for _ in range(COLS)] for _ in range(ROWS)]
-    MIDDLE_COL = COLS // 2
     for y in range(ROWS):
         for x in range(COLS):
             v = sum(robot.py == y and robot.px == x for robot in robots)
